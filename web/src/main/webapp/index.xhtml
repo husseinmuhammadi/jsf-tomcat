@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>JSF</title>
+
+    <h:outputScript library="js" name="jquery.js" target="head"/>
+    <h:outputScript library="javax.faces" name="jsf-uncompressed.js" target="head"/>
+</h:head>
+
+<h:body>
+    <f:view locale="en_US">
+        <p>This sample is jsf implementation of mojarra</p>
+        <h:outputLabel value="I am just a facelet"/>
+        <h:outputLabel value="#{greetingController.greeting}"/>
+
+        <h:outputText value="#{greetingController.absoluteUrl}"/>
+
+        <h:outputScript>
+            function ajaxRequest(urlPage, targetId) {
+                $.ajax({
+                    url: urlPage
+                }).done(function (data) {
+                    $('#' + targetId.toString()).html(data);
+                });
+            }
+        </h:outputScript>
+
+    </f:view>
+</h:body>
+</html>
